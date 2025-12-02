@@ -8,7 +8,8 @@
             "Progettazione pipeline dati dipartimentali.",
             "Collaborazione cross-team su architetture integrate.",
             "Mentoring di un junior ML engineer."
-        ]
+        ],
+        "skills": ["Python", "TensorFlow", "Docker", "Kubernetes", "Airflow"]
     },
     {
         "role": "Machine Learning Intern",
@@ -17,6 +18,8 @@
         "points": [
             "Sviluppo di modelli per classificazione e segmentazione geospaziale.",
             "Deployment di prototipi ML in strumenti interni riproducibili."
-        ]
+        ],
+        "skills": ["Python", "TensorFlow", "Docker", "Kubernetes", "Airflow"]
+
     }
 ]

@@ -63,6 +63,43 @@ function renderError(id, message) {
     if (el) el.innerHTML = `<p style="color:#c0392b">${message}</p>`;
 }
 
+// Icone/emoji per rendere le skill più leggibili
+function skillIconFor(label) {
+    const pairs = [
+        [/python|pandas|numpy|scikit/i, '🐍'],
+        [/pytorch|tensorflow|supervised learning|unsupervised learning|deep learning/i, '🧠'],
+        [/docker|kubernetes/i, '🐳'],
+        [/sql|mongodb|postgres|mysql/i, '💾'],
+        [/fastapi/i, '⚡'],
+        [/mlflow|dvc/i, '📈'],
+        [/computer\s*vision|vision/i, '👁️'],
+        [/git|devops/i, '🔧'],
+        [/cloud|aws|azure|gcp/i, '☁️'],
+        [/javascript|typescript|react|vue|angular/i, '🖥️'],
+        [/html|css/i, '🌐'],
+        [/linux|bash|shell/i, '🐧'],
+        [/data engineering|etl|pipeline/i, '🔄'],
+        [/prefect|airflow/i, '🏗️']
+    ];
+    for (const [re, ico] of pairs) if (re.test(label)) return ico;
+    return '';
+}
+
+function renderSkillChip(item) {
+    let label = '';
+    let level = null;
+    if (typeof item === 'string') {
+        label = item;
+    } else if (item && typeof item === 'object') {
+        label = item.label || item.name || '';
+        level = item.level ?? null; // opzionale
+    }
+    const icon = skillIconFor(label);
+    const iconSpan = icon ? `<span class="chip-icon" aria-hidden="true">${icon}</span>` : '';
+    const levelAttr = level != null ? ` data-level="${level}"` : '';
+    return `<span class="chip"${levelAttr} title="${label}">${iconSpan}${label}</span>`;
+}
+
 /**
  * Initializes the CV application by loading and rendering all necessary data.
  * 
@@ -132,12 +169,14 @@ async function init() {
             <p><strong>LinkedIn:</strong> <a href="${contacts.linkedin}" target="_blank" rel="noopener">${contacts.linkedin.split("/").pop()}</a></p>
         `;
 
-        // Skills
+        // Skills (render come chips)
         document.getElementById("skills").innerHTML =
             `<h2>Skills</h2>` +
             skills.sections.map(section => `
-                <h3>${section.title}</h3>
-                <ul>${section.items.map(i => `<li>${i}</li>`).join("")}</ul>
+                <div class="skill-group">
+                    <h3>${section.title}</h3>
+                    <div class="skills-chips">${section.items.map(renderSkillChip).join("")}</div>
+                </div>
             `).join("");
 
         // Esperienza
@@ -148,6 +187,7 @@ async function init() {
                     <h3>${job.role} — ${job.company}</h3>
                     <span class="date">${job.period}</span>
                     <ul>${job.points.map(p => `<li>${p}</li>`).join("")}</ul>
+                    <div class="skills-chips">${job.skills.map(renderSkillChip).join("")}</div>
                 </div>
             `).join("");
 

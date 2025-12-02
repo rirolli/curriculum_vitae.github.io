@@ -10,6 +10,7 @@
     --shadow: 0 4px 18px rgba(0,0,0,0.05);
     --space: clamp(16px, 3vw, 30px);
     --radius: 12px;
+    --chip-bg: rgba(59,106,255,0.08);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -42,6 +43,7 @@
     --brand: #6da3ff;
     --divider: #2a2f3a;
     --shadow: none;
+    --chip-bg: rgba(109,163,255,0.16);
 }
 
 body {
@@ -132,6 +134,29 @@ a:hover { text-decoration: underline; }
 
 /* Nascondi sezioni vuote */
 .section:empty { display: none; }
+
+/* Skills chips */
+.skill-group { margin-bottom: 18px; }
+.skills-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+.chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 10px;
+    border-radius: 999px;
+    border: 1px solid var(--divider);
+    background: var(--chip-bg);
+    color: var(--text);
+    font-weight: 500;
+    font-size: 14px;
+    transition: border-color .2s ease, transform .15s ease;
+}
+.chip:hover { border-color: var(--brand); transform: translateY(-1px); }
+.chip-icon { font-size: 14px; line-height: 1; }
 
 /* Toggle tema */
 .sidebar-top {
