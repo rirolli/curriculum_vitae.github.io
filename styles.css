@@ -141,6 +141,7 @@ a:hover { text-decoration: underline; }
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
+    margin-top: 8px; /* spazio tra titolo e chips */
 }
 .chip {
     display: inline-flex;
@@ -190,7 +191,10 @@ a:hover { text-decoration: underline; }
         flex-direction: column; 
         padding-inline: clamp(14px, 4vw, 24px); /* evita che i bordi tocchino lo schermo */
     }
-    .content { order: 1; }
+    .content {
+        order: 1;
+        text-align: justify;
+    }
     .sidebar { 
         order: 2; 
         width: 100%; 
@@ -211,4 +215,10 @@ a:hover { text-decoration: underline; }
     .sidebar, .content { box-shadow: none; border-radius: 0; }
     a { color: #000; text-decoration: none; }
     #theme-toggle { display: none; }
+}
+
+/* Contact icons spacing */
+#contacts i { 
+    margin-right: 6px; 
+    color: var(--muted); 
 }

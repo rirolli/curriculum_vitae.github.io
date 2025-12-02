@@ -1,0 +1,13 @@
+[
+  {
+    "title": "Operational ML Platform for Geospatial Analytics",
+    "period": "2024 – Presente",
+    "description": "Piattaforma end-to-end per flussi ML operativi con **containerized deployment**, *REST APIs* e orchestrazione.",
+    "points": [
+      "Pipeline di dati automatizzate (ingestione, selezione, preprocessing)",
+      "Deployment su Docker e integrazione con FastAPI",
+      "Monitoraggio esperimenti con MLflow, versionamento dataset con DVC"
+    ],
+    "skills": ["Python", "Docker", "FastAPI", "MLflow", "DVC", "SQL"]
+  }
+]

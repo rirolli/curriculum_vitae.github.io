@@ -3,25 +3,26 @@
         "role": "Machine Learning Engineer",
         "company": "e-Geos S.p.A.",
         "period": "04.2023 – Presente",
-        "description": "Sviluppo e deployment di modelli di Machine Learning per applicazioni geospaziali in ambienti cloud.",
+        "description": "As a Machine Learning Engineer, I develop ML and AI solutions designed to integrate into complex, production-grade systems used across international projects. I work at the intersection of model development, data pipeline engineering and system integration, focusing on scalability, reliability and reproducibility.",        
         "points": [
-            "Sviluppo end-to-end di modelli ML per sistemi operativi.",
-            "Progettazione pipeline dati dipartimentali.",
-            "Collaborazione cross-team su architetture integrate.",
-            "Mentoring di un junior ML engineer."
+            "**End-to-end ML model development** for operational systems, from design and training to containerized deployment and exposure through REST APIs.",
+            "**Design and implementation of data pipelines** for retrieval, selection and preprocessing, now adopted across the department and significantly improving automation and data preparation time.",
+            "**Cross-team collaboration** to deliver integrated workflows combining ML, data engineering and software components in coherent, scalable architectures.",
+            "**Mentoring and direction of a junior ML resource** to support the full development process, accelerate onboarding, and enhance team execution capacity.",
+            "**Technical management activities** in international projects as a subject-matter expert for documentation, architecture contributions and solution alignment with project requirements."
         ],
-        "skills": ["Python", "TensorFlow", "Docker", "Kubernetes", "Airflow"]
+        "skills": ["Python", "PyTorch", "TensorFlow", "Scikit-Learn", "Pandas", "Numpy", "MLFlow", "DVC", "FastAPI", "Docker", "Git", "SQL", "Geospatial Tools"]
     },
     {
         "role": "Machine Learning Intern",
         "company": "e-Geos S.p.A.",
         "period": "06.2022 – 04.2023",
-        "description": "Ricerca e sviluppo di modelli di Deep Learning per la classificazione e segmentazione di dati geospaziali.",
+        "description": "During my internship, I contributed to the development of ML solutions and internal tools supporting geospatial data processing and model experimentation.",
         "points": [
-            "Sviluppo di modelli per classificazione e segmentazione geospaziale.",
-            "Deployment di prototipi ML in strumenti interni riproducibili."
+            "**Developed and evaluated multiple ML models** for classification and image segmentation on complex geospatial datasets, using data preprocessing and feature extraction techniques to improve performance.",
+            "**Deployment of ML prototypes** into reproducible and maintainable tools adopted by the team."
         ],
-        "skills": ["Python", "TensorFlow", "Docker", "Kubernetes", "Airflow"]
+        "skills": ["Python", "PyTorch", "Pandas", "Numpy", "Git", "Docker", "Geospatial Tools"]
 
     }
 ]
