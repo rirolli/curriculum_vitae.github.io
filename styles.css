@@ -85,18 +85,32 @@ body {
 }
 
 .section h2 {
-    margin-top: 0;
+    margin: 0 0 8px 0; /* riduci spazio sotto il titolo */
     font-size: 20px;
     color: var(--brand);
     border-bottom: 2px solid var(--divider);
-    padding-bottom: 5px;
+    padding-bottom: 3px; /* più compatto */
 }
+/* evita margine extra subito dopo il titolo */
+.section h2 + p { margin-top: 0; }
+.section h2 + ul { margin-top: 0; }
 
 .section ul { padding-left: 18px; }
 .section ul li { margin-bottom: 6px; }
 .job, .edu { margin-bottom: 25px; }
 .job h3, .edu h3 { margin: 0; }
 .date { font-size: 14px; color: var(--muted); }
+
+/* Riduci lo spazio tra data e descrizione nelle esperienze */
+.job .date { display: block; margin: 2px 0 0; }
+.job .date + ul { margin-top: 4px; }
+
+/* Applica la stessa compattezza a educazione e skills */
+.edu .date { display: block; margin: 2px 0 0; }
+.edu .date + p { margin-top: 4px; }
+.section h3 { margin: 0; }
+.section h3 + p,
+.section h3 + ul { margin-top: 4px; }
 
 a { color: var(--brand); text-decoration: none; }
 a:hover { text-decoration: underline; }
