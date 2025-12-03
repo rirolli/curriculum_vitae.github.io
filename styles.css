@@ -156,7 +156,7 @@ a:hover { text-decoration: underline; }
     font-size: 14px;
     transition: border-color .2s ease, transform .15s ease;
 }
-.chip:hover { border-color: var(--brand); transform: translateY(-1px); }
+/* .chip:hover { border-color: var(--brand); transform: translateY(-1px); } */
 .chip-icon { font-size: 14px; line-height: 1; }
 
 /* Toggle tema */

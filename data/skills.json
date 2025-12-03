@@ -2,19 +2,31 @@
     "sections": [
         {
             "title": "Machine Learning & Analytics",
-            "items": ["Supervised/Unsupervised", "Deep Learning", "Computer Vision"]
+            "items": ["Supervised/Unsupervised Learning", "Deep Learning", "Computer Vision"]
         },
         {
-            "title": "ML Frameworks",
+            "title": "Machine Learning Frameworks",
             "items": ["PyTorch", "TensorFlow", "Scikit-Learn"]
         },
         {
             "title": "Data Engineering",
-            "items": ["Pandas", "NumPy", "SQL", "MongoDB"]
+            "items": ["Pandas", "NumPy", "SciPy", "SQL (PostgreSQL, MySQL)", "NoSQL (MongoDB)"]
         },
         {
             "title": "MLOps & Deployment",
-            "items": ["Docker", "FastAPI", "MLflow", "DVC", "Git"]
+            "items": ["Docker", "REST APIs", "FastAPI", "MLflow", "DVC", "Git"]
+        },
+        {
+            "title": "Programming Languages",
+            "items": ["Python", "Java", "R", "C", "C++", "C#", "Bash Scripting"]
+        },
+        {
+            "title": "Geospatial Tools",
+            "items": ["GDAL", "Rasterio", "GeoPandas", "QGIS"]
+        },
+        {
+            "title": "Soft Skills",
+            "items": ["Problem Solving", "Communication", "Critical Thinking", "Teamwork", "Cross-Functional Collaboration", "Adaptability"]
         }
     ]
 }

@@ -1,6 +1,67 @@
 // Configuration: visitor counter
 const SITE_URL = "https://rirolli.github.io/curriculum_vitae";
 
+const ICON_PAIRS = [
+    // General ML & frameworks
+    [/python|pandas|numpy|scikit/i, '<i class="fa-brands fa-python"></i>'],
+    [/supervised\/?unsupervised\s*learning|deep\s*learning/i, '<i class="fa-solid fa-brain"></i>'],
+    [/computer\s*vision|opencv/i, '<i class="fa-solid fa-eye"></i>'],
+    [/pytorch/i, '<i class="fa-solid fa-fire-flame-curved"></i>'],
+    [/tensorflow/i, '<i class="fa-solid fa-wave-square"></i>'],
+    [/scikit\s*-?learn/i, '<i class="fa-solid fa-gears"></i>'],
+
+    // Data engineering & databases
+    [/pandas/i, '<i class="fa-solid fa-table"></i>'],
+    [/numpy/i, '<i class="fa-solid fa-cubes"></i>'],
+    [/scipy/i, '<i class="fa-solid fa-flask"></i>'],
+    [/sql|postgresql|mysql/i, '<i class="fa-solid fa-database"></i>'],
+    [/nosql|mongo\s*db|mongodb/i, '<i class="fa-solid fa-database"></i>'],
+
+    // MLOps & APIs
+    [/docker/i, '<i class="fa-brands fa-docker"></i>'],
+    [/rest\s*apis|rest\s*api|graphql|api/i, '<i class="fa-solid fa-plug"></i>'],
+    [/fastapi/i, '<i class="fa-solid fa-bolt"></i>'],
+    [/mlflow/i, '<i class="fa-solid fa-chart-line"></i>'],
+    [/dvc/i, '<i class="fa-solid fa-code-branch"></i>'],
+    [/git/i, '<i class="fa-brands fa-git-alt"></i>'],
+
+    // Programming languages
+    [/java/i, '<i class="fa-brands fa-java"></i>'],
+    [/^c\+\+$|^r$|\br\b/i, '<i class="fa-solid fa-code"></i>'],
+    [/^c#$/i, '<i class="fa-solid fa-code"></i>'],
+    [/^c$/i, '<i class="fa-solid fa-code"></i>'],
+    [/bash|scripting|shell/i, '<i class="fa-solid fa-terminal"></i>'],
+
+    // Geospatial tools
+    [/gdal|rasterio|geopandas|qgis|gis/i, '<i class="fa-solid fa-map"></i>'],
+
+    // Soft skills
+    [/problem\s*solving/i, '<i class="fa-regular fa-lightbulb"></i>'],
+    [/communication/i, '<i class="fa-solid fa-comments"></i>'],
+    [/critical\s*thinking/i, '<i class="fa-solid fa-brain"></i>'],
+    [/teamwork|collaboration|cross\s*functional/i, '<i class="fa-solid fa-people-group"></i>'],
+    [/adaptability|flexibility/i, '<i class="fa-solid fa-shuffle"></i>'],
+
+    // Extras
+    [/kubernetes/i, '<i class="fa-solid fa-cubes"></i>'],
+    [/cloud|aws|azure|gcp/i, '<i class="fa-solid fa-cloud"></i>'],
+    [/javascript|typescript|react|vue|angular/i, '<i class="fa-solid fa-code"></i>'],
+    [/html|css/i, '<i class="fa-solid fa-globe"></i>'],
+    [/linux/i, '<i class="fa-brands fa-linux"></i>'],
+    [/data\s*engineering|etl|pipeline/i, '<i class="fa-solid fa-diagram-project"></i>'],
+    [/prefect|airflow/i, '<i class="fa-solid fa-project-diagram"></i>'],
+    [/nlp|bert|transformers|spacy|nltk/i, '<i class="fa-solid fa-language"></i>'],
+    [/time\s*series|forecast|arima|prophet/i, '<i class="fa-solid fa-chart-area"></i>'],
+    [/spark|hadoop|big\s*data/i, '<i class="fa-solid fa-fire"></i>'],
+    [/tableau|power\s*bi|metabase|superset/i, '<i class="fa-solid fa-chart-bar"></i>'],
+    [/pytest|unittest|testing/i, '<i class="fa-solid fa-vial"></i>'],
+    [/ci\/?cd|github\s*actions|gitlab\s*ci|jenkins/i, '<i class="fa-solid fa-gear"></i>'],
+    [/microservice|distributed|scalable/i, '<i class="fa-solid fa-network-wired"></i>'],
+    [/optimization|optimizer|tuning/i, '<i class="fa-solid fa-sliders"></i>'],
+    [/statistics|probability|bayes/i, '<i class="fa-solid fa-square-root-variable"></i>'],
+    [/matplotlib|seaborn|plotly|charts/i, '<i class="fa-solid fa-chart-pie"></i>']
+];
+
 function setLoading() {
     const ids = ["profile", "contacts", "skills", "experience", "education"];
     ids.forEach(id => {
@@ -89,36 +150,7 @@ function renderError(id, message) {
 
 // Icone/emoji per rendere le skill più leggibili
 function skillIconFor(label) {
-    const pairs = [
-        [/python|pandas|numpy|scikit/i, '<i class="fa-brands fa-python"></i>'],
-        [/pytorch|tensorflow|supervised learning|unsupervised learning|deep learning/i, '<i class="fa-solid fa-brain"></i>'],
-        [/docker/i, '<i class="fa-brands fa-docker"></i>'],
-        [/kubernetes/i, '<i class="fa-solid fa-cubes"></i>'],
-        [/sql|mongodb|postgres|mysql/i, '<i class="fa-solid fa-database"></i>'],
-        [/fastapi/i, '<i class="fa-solid fa-bolt"></i>'],
-        [/mlflow|dvc/i, '<i class="fa-solid fa-chart-line"></i>'],
-        [/computer\s*vision|vision|opencv/i, '<i class="fa-solid fa-eye"></i>'],
-        [/git|devops/i, '<i class="fa-solid fa-screwdriver-wrench"></i>'],
-        [/cloud|aws|azure|gcp/i, '<i class="fa-solid fa-cloud"></i>'],
-        [/javascript|typescript|react|vue|angular/i, '<i class="fa-solid fa-code"></i>'],
-        [/html|css/i, '<i class="fa-solid fa-globe"></i>'],
-        [/linux|bash|shell/i, '<i class="fa-brands fa-linux"></i>'],
-        [/data engineering|etl|pipeline/i, '<i class="fa-solid fa-diagram-project"></i>'],
-        [/prefect|airflow/i, '<i class="fa-solid fa-project-diagram"></i>'],
-        [/geospatial|gis|remote sensing|geography|map/i, '<i class="fa-solid fa-map"></i>'],
-        [/nlp|bert|transformers|spacy|nltk/i, '<i class="fa-solid fa-language"></i>'],
-        [/time series|forecast|arima|prophet/i, '<i class="fa-solid fa-chart-area"></i>'],
-        [/spark|hadoop|big\s*data/i, '<i class="fa-solid fa-fire"></i>'],
-        [/tableau|power\s*bi|metabase|superset/i, '<i class="fa-solid fa-chart-bar"></i>'],
-        [/rest|api|graphql/i, '<i class="fa-solid fa-plug"></i>'],
-        [/pytest|unittest|testing/i, '<i class="fa-solid fa-vial"></i>'],
-        [/ci\/?cd|github actions|gitlab ci|jenkins/i, '<i class="fa-solid fa-gear"></i>'],
-        [/microservice|distributed|scalable/i, '<i class="fa-solid fa-network-wired"></i>'],
-        [/optimization|optimizer|tuning/i, '<i class="fa-solid fa-sliders"></i>'],
-        [/statistics|probability|bayes/i, '<i class="fa-solid fa-square-root-variable"></i>'],
-        [/matplotlib|seaborn|plotly|charts/i, '<i class="fa-solid fa-chart-pie"></i>']
-    ];
-    for (const [re, ico] of pairs) if (re.test(label)) return ico;
+    for (const [re, ico] of ICON_PAIRS) if (re.test(label)) return ico;
     // Default icon when no mapping matches
     return '<i class="fa-solid fa-tag"></i>';
 }
