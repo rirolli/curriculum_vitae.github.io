@@ -210,11 +210,30 @@ a:hover { text-decoration: underline; }
 
 /* Stampa */
 @media print {
-    body { background: #ffffff; }
-    .container { padding: 0; gap: 16px; }
-    .sidebar, .content { box-shadow: none; border-radius: 0; }
+    body { background: #ffffff; color: #000; }
+    /* Single-column layout for print */
+    .container { display: block; padding: 0; margin: 0; gap: 0; }
+    .sidebar, .content { box-shadow: none; border-radius: 0; width: 100%; padding: 0; margin: 0; }
+    /* Put avatar at the very top with tight spacing */
+    #avatar { width: 120px; height: 120px; margin: 0 0 8pt 0; border: 1px solid #000; box-shadow: none; }
+    /* Hide interactive/ui-only elements */
+    #theme-toggle,
+    #visitor-badge,
+    .loading-overlay { display: none !important; }
+    /* Links: print as plain text */
     a { color: #000; text-decoration: none; }
-    #theme-toggle { display: none; }
+    /* Name larger for print */
+    #name { font-size: 28pt; margin: 0 0 8pt 0; }
+    .section h2 { font-size: 12pt; border-bottom: 1px solid #000; padding-bottom: 2pt; }
+    .section h3 { font-size: 11pt; }
+    .date { font-size: 9pt; color: #333; }
+    .chip { border-color: #000; }
+    /* Page break rules to avoid orphaned headers */
+    .section { page-break-inside: avoid; }
+    .job, .edu { page-break-inside: avoid; }
+    /* Reduce margins for tighter print */
+    .job, .edu { margin: 0 0 10pt 0; }
+    .section { margin: 0 0 12pt 0; }
 }
 
 /* Languages section */

@@ -19,7 +19,7 @@
         "period": "06.2022 – 04.2023",
         "description": "Contribution to the development of ML solutions and internal tools supporting geospatial data processing and model experimentation.",
         "points": [
-            "**Developed and evaluated multiple ML models**for classification and image segmentation on complex geospatial datasets, applying preprocessing and feature extraction techniques to improve performance.",
+            "**Developed and evaluated multiple ML models** for classification and image segmentation on complex geospatial datasets, applying preprocessing and feature extraction techniques to improve performance.",
             "**Deployment of ML prototypes** as reproducible and maintainable tools adopted by the team."
         ],
         "skills": ["Python", "PyTorch", "Pandas", "Numpy", "Git", "Docker", "Geospatial Tools"]
