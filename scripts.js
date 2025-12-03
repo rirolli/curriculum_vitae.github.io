@@ -351,7 +351,7 @@ async function init() {
         console.error(err);
     } finally {
         // Visitor badge injection (always runs)
-        setupVisitorBadge();
+        // setupVisitorBadge();
     }
 }
 
