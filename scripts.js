@@ -1,3 +1,6 @@
+// Configuration: visitor counter
+const SITE_URL = "https://rirolli.github.io/curriculum_vitae";
+
 function setLoading() {
     const ids = ["profile", "contacts", "skills", "experience", "education"];
     ids.forEach(id => {
@@ -346,10 +349,25 @@ async function init() {
         renderError('experience', "Unable to load experience.");
         renderError('education', 'Unable to load education.');
         console.error(err);
+    } finally {
+        // Visitor badge injection (always runs)
+        setupVisitorBadge();
     }
 }
 
 init();
+
+function setupVisitorBadge() {
+    const el = document.getElementById('visitor-badge');
+    if (!el) {
+        console.warn('visitor-badge element not found');
+        return;
+    }
+    const encoded = encodeURIComponent(SITE_URL);
+    const badgeUrl = `https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=${encoded}&count_bg=%233B6AFF&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=Visitors&edge_flat=false`;
+    el.innerHTML = `<img src="${badgeUrl}" alt="Visitor count" loading="lazy" />`;
+    console.log('Visitor badge injected:', badgeUrl);
+}
 
 function setupResponsiveAvatarPlacement() {
     const avatar = document.getElementById('avatar');
