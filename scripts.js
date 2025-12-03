@@ -348,7 +348,7 @@ async function init() {
                 const progress = pct != null ? `<div class="lang-meter" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${pct}"><div class="lang-meter-fill" style="width:${pct}%"></div></div>` : '';
                 return `
                     <div class="lang">
-                        <h3><i class="fa-solid fa-language" aria-hidden="true"></i> ${renderRichText(l.name || '')} ${badge}</h3>
+                        <p><i class="fa-solid fa-language" aria-hidden="true"></i> ${renderRichText(l.name || '')} ${badge}</p>
                         ${progress}
                         ${note}
                     </div>
