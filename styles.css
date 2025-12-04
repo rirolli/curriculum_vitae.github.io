@@ -51,6 +51,9 @@ body {
     font-family: "Inter", sans-serif;
     background: var(--bg);
     color: var(--text);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 .container {
@@ -59,6 +62,7 @@ body {
     margin: auto;
     padding: var(--space);
     gap: var(--space);
+    flex: 1;
 }
 
 .sidebar {
@@ -207,6 +211,17 @@ a:hover { text-decoration: underline; }
     #avatar { width: clamp(72px, 28vw, 110px); height: clamp(72px, 28vw, 110px); }
     .container { padding-right: calc(clamp(12px, 4vw, 20px) + env(safe-area-inset-right)); }
 }
+
+footer {
+    order: 3;
+    text-align: center;
+    padding: 16px;
+    flex-shrink: 0;
+    margin-top: auto;
+    color: var(--muted);
+    font-size: 14px;
+}
+footer p { margin: 0; }
 
 /* Stampa */
 @media print {
